@@ -1,0 +1,26 @@
+<.header>
+  Listing Trainers
+  <:actions>
+    <.link href={~p"/trainers/new"}>
+      <.button>New Trainer</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.table id="trainers" rows={@trainers} row_click={&JS.navigate(~p"/trainers/#{&1}")}>
+  <:col :let={trainer} label="Name"><%= trainer.name %></:col>
+  <:col :let={trainer} label="Age"><%= trainer.age %></:col>
+  <:col :let={trainer} label="Badges"><%= trainer.badges %></:col>
+  <:col :let={trainer} label="Pokemon"><%= trainer.pokemon %></:col>
+  <:action :let={trainer}>
+    <div class="sr-only">
+      <.link navigate={~p"/trainers/#{trainer}"}>Show</.link>
+    </div>
+    <.link navigate={~p"/trainers/#{trainer}/edit"}>Edit</.link>
+  </:action>
+  <:action :let={trainer}>
+    <.link href={~p"/trainers/#{trainer}"} method="delete" data-confirm="Are you sure?">
+      Delete
+    </.link>
+  </:action>
+</.table>

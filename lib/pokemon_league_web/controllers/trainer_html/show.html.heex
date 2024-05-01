@@ -1,0 +1,18 @@
+<.header>
+  Trainer <%= @trainer.id %>
+  <:subtitle>This is a trainer record from your database.</:subtitle>
+  <:actions>
+    <.link href={~p"/trainers/#{@trainer}/edit"}>
+      <.button>Edit trainer</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.list>
+  <:item title="Name"><%= @trainer.name %></:item>
+  <:item title="Age"><%= @trainer.age %></:item>
+  <:item title="Badges"><%= @trainer.badges %></:item>
+  <:item title="Pokemon"><%= @trainer.pokemon %></:item>
+</.list>
+
+<.back navigate={~p"/trainers"}>Back to trainers</.back>

@@ -1,0 +1,24 @@
+<.simple_form :let={f} for={@changeset} action={@action}>
+  <.error :if={@changeset.action}>
+    Oops, something went wrong! Please check the errors below.
+  </.error>
+  <.input field={f[:name]} type="text" label="Name" />
+  <.input field={f[:age]} type="number" label="Age" />
+  <.input
+    field={f[:badges]}
+    type="select"
+    multiple
+    label="Badges"
+    options={[{"Option 1", "option1"}, {"Option 2", "option2"}]}
+  />
+  <.input
+    field={f[:pokemon]}
+    type="select"
+    multiple
+    label="Pokemon"
+    options={[{"Option 1", "option1"}, {"Option 2", "option2"}]}
+  />
+  <:actions>
+    <.button>Save Trainer</.button>
+  </:actions>
+</.simple_form>
