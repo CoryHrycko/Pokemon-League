@@ -1,0 +1,22 @@
+<.header>
+  Listing Trainer badge
+  <:actions>
+    <.link href={~p"/trainer_badge/new"}>
+      <.button>New Trainer badge</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.table id="trainer_badge" rows={@trainer_badge_collection} row_click={&JS.navigate(~p"/trainer_badge/#{&1}")}>
+  <:action :let={trainer_badge}>
+    <div class="sr-only">
+      <.link navigate={~p"/trainer_badge/#{trainer_badge}"}>Show</.link>
+    </div>
+    <.link navigate={~p"/trainer_badge/#{trainer_badge}/edit"}>Edit</.link>
+  </:action>
+  <:action :let={trainer_badge}>
+    <.link href={~p"/trainer_badge/#{trainer_badge}"} method="delete" data-confirm="Are you sure?">
+      Delete
+    </.link>
+  </:action>
+</.table>

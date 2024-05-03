@@ -1,0 +1,14 @@
+<.header>
+  Trainer badge <%= @trainer_badge.id %>
+  <:subtitle>This is a trainer_badge record from your database.</:subtitle>
+  <:actions>
+    <.link href={~p"/trainer_badge/#{@trainer_badge}/edit"}>
+      <.button>Edit trainer_badge</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.list>
+</.list>
+
+<.back navigate={~p"/trainer_badge"}>Back to trainer_badge</.back>

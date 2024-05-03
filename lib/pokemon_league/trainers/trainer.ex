@@ -5,16 +5,18 @@ defmodule PokemonLeague.Trainers.Trainer do
   schema "trainers" do
     field :name, :string
     field :age, :integer
-    field :badges, {:array, :string}
-    field :pokemon, {:array, :string}
+    field :pokemon, {:array, :string}, default: []
+    many_to_many :badges, PokemonLeague.Badges.Badge,
+      join_through: "trainer_badges",
+      on_replace: :delete
 
-    timestamps(type: :utc_datetime)
+    timestamps()
   end
 
   @doc false
   def changeset(trainer, attrs) do
     trainer
-    |> cast(attrs, [:name, :age, :badges, :pokemon])
-    |> validate_required([:name, :age, :badges, :pokemon])
+    |> cast(attrs, [:name, :age, :pokemon])
+    |> validate_required([:name, :age])
   end
 end

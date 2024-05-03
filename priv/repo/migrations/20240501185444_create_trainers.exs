@@ -5,8 +5,7 @@ defmodule PokemonLeague.Repo.Migrations.CreateTrainers do
     create table(:trainers) do
       add :name, :string
       add :age, :integer
-      add :badges, {:array, :string}
-      add :pokemon, {:array, :string}
+      add :pokemon, {:array, :string}, null: false, default: []
 
       timestamps(type: :utc_datetime)
     end

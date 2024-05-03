@@ -1,0 +1,8 @@
+<.header>
+  Edit Badge <%= @badge.id %>
+  <:subtitle>Use this form to manage badge records in your database.</:subtitle>
+</.header>
+
+<.badge_form changeset={@changeset} action={~p"/badges/#{@badge}"} />
+
+<.back navigate={~p"/badges"}>Back to badges</.back>

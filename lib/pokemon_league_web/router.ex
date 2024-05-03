@@ -17,8 +17,13 @@ defmodule PokemonLeagueWeb.Router do
   scope "/", PokemonLeagueWeb do
     pipe_through :browser
 
-    get "/", PageController, :home
+    get "/", TrainerController, :index
     resources "/trainers", TrainerController
+    resources "/badges", BadgeController
+
+    get "/about", PageController, :about
+
+    live "/live_Trainers", TrainerLive.Index
 
   end
 

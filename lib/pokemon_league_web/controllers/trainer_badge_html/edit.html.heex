@@ -1,0 +1,8 @@
+<.header>
+  Edit Trainer badge <%= @trainer_badge.id %>
+  <:subtitle>Use this form to manage trainer_badge records in your database.</:subtitle>
+</.header>
+
+<.trainer_badge_form changeset={@changeset} action={~p"/trainer_badge/#{@trainer_badge}"} />
+
+<.back navigate={~p"/trainer_badge"}>Back to trainer_badge</.back>

@@ -35,8 +35,12 @@ defmodule PokemonLeague.Trainers do
       ** (Ecto.NoResultsError)
 
   """
-  def get_trainer!(id), do: Repo.get!(Trainer, id)
-
+  def get_trainer!(id) do
+    Trainer
+    |> where(id: ^id)
+    |> Repo.preload(:badges)
+    |> Repo.one!()
+  end
   @doc """
   Creates a trainer.
 
@@ -70,6 +74,7 @@ defmodule PokemonLeague.Trainers do
   def update_trainer(%Trainer{} = trainer, attrs) do
     trainer
     |> Trainer.changeset(attrs)
+    |> Repo.preload(:badges)
     |> Repo.update()
   end
 

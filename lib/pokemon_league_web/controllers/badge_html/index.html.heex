@@ -1,0 +1,24 @@
+<.header>
+  Listing Badges
+  <:actions>
+    <.link href={~p"/badges/new"}>
+      <.button>New Badge</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.table id="badges" rows={@badges} row_click={&JS.navigate(~p"/badges/#{&1}")}>
+  <:col :let={badge} label="Name"><%= badge.name %></:col>
+  <:col :let={badge} label="Type"><%= badge.type %></:col>
+  <:action :let={badge}>
+    <div class="sr-only">
+      <.link navigate={~p"/badges/#{badge}"}>Show</.link>
+    </div>
+    <.link navigate={~p"/badges/#{badge}/edit"}>Edit</.link>
+  </:action>
+  <:action :let={badge}>
+    <.link href={~p"/badges/#{badge}"} method="delete" data-confirm="Are you sure?">
+      Delete
+    </.link>
+  </:action>
+</.table>

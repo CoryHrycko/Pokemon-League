@@ -1,0 +1,16 @@
+<.header>
+  Badge <%= @badge.id %>
+  <:subtitle>This is a badge record from your database.</:subtitle>
+  <:actions>
+    <.link href={~p"/badges/#{@badge}/edit"}>
+      <.button>Edit badge</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.list>
+  <:item title="Name"><%= @badge.name %></:item>
+  <:item title="Type"><%= @badge.type %></:item>
+</.list>
+
+<.back navigate={~p"/badges"}>Back to badges</.back>

@@ -1,6 +1,6 @@
 <.simple_form :let={f} for={@changeset} action={@action}>
   <.error :if={@changeset.action}>
-    Oops, something went wrong! Please check the errors below.
+    Oops, the Trainer could not be saved!
   </.error>
   <.input field={f[:name]} type="text" label="Name" />
   <.input field={f[:age]} type="number" label="Age" />
@@ -9,14 +9,17 @@
     type="select"
     multiple
     label="Badges"
-    options={[{"Option 1", "option1"}, {"Option 2", "option2"}]}
+    options={[{"The Boulder Badge ", "The Boulder Badge "}, {"The Cascade Badge ", "The Cascade Badge "}, {"The Thunder Badge ", "The Thunder Badge "}, 
+    {"The Rainbow Badge ", "The Rainbow Badge "}, {"The Soul Badge ", "The Soul Badge "}, {"The Marsh Badge ", "The Marsh Badge "}, {"The Volcano Badge ", "The Volcano Badge "}, 
+    {"The Earth Badge ", "The Earth Badge "}]}
   />
+  "{f}"
   <.input
     field={f[:pokemon]}
     type="select"
     multiple
     label="Pokemon"
-    options={[{"Option 1", "option1"}, {"Option 2", "option2"}]}
+    options={[{"The Pokemon", "1"}]}
   />
   <:actions>
     <.button>Save Trainer</.button>
