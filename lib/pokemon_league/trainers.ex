@@ -19,6 +19,7 @@ defmodule PokemonLeague.Trainers do
   """
   def list_trainers do
     Repo.all(Trainer)
+    |> Repo.preload(:badges)
   end
 
   @doc """
@@ -36,11 +37,18 @@ defmodule PokemonLeague.Trainers do
 
   """
   def get_trainer!(id) do
-    Trainer
-    |> where(id: ^id)
+    Repo.get!(Trainer, id)
     |> Repo.preload(:badges)
-    |> Repo.one!()
   end
+
+  def list_badges(trainer) do
+    trainer
+    |> Repo.preload(:badges)
+    |> Map.get(:badges)
+    |> Enum.map(& &1.name)
+  end
+
+
   @doc """
   Creates a trainer.
 

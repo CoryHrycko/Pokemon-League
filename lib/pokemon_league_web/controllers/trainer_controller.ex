@@ -6,6 +6,7 @@ defmodule PokemonLeagueWeb.TrainerController do
 
   def index(conn, _params) do
     trainers = Trainers.list_trainers()
+
     render(conn, :index, trainers: trainers)
   end
 
@@ -28,7 +29,8 @@ defmodule PokemonLeagueWeb.TrainerController do
 
   def show(conn, %{"id" => id}) do
     trainer = Trainers.get_trainer!(id)
-    render(conn, :show, trainer: trainer)
+
+    render(conn, :show, trainer: trainer )
   end
 
   def edit(conn, %{"id" => id}) do

@@ -6,7 +6,7 @@ defmodule PokemonLeague.Badges.Badge do
     field :name, :string
     field :type, :integer
     many_to_many :trainers, PokemonLeague.Trainers.Trainer,
-      join_through: "trainer_badges",
+      join_through: "trainer_badge",
       on_replace: :delete
 
     timestamps(type: :utc_datetime)

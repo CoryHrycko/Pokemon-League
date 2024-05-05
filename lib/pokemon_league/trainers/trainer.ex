@@ -7,7 +7,7 @@ defmodule PokemonLeague.Trainers.Trainer do
     field :age, :integer
     field :pokemon, {:array, :string}, default: []
     many_to_many :badges, PokemonLeague.Badges.Badge,
-      join_through: "trainer_badges",
+      join_through: "trainer_badge",
       on_replace: :delete
 
     timestamps()
